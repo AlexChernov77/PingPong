@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		1F176463225A4E0F0085818C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F176462225A4E0F0085818C /* AppDelegate.m */; };
 		1F176466225A4E0F0085818C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F176465225A4E0F0085818C /* ViewController.m */; };
-		1F176469225A4E0F0085818C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F176467225A4E0F0085818C /* Main.storyboard */; };
 		1F17646B225A4E100085818C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F17646A225A4E100085818C /* Assets.xcassets */; };
 		1F17646E225A4E100085818C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F17646C225A4E100085818C /* LaunchScreen.storyboard */; };
 		1F176471225A4E100085818C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F176470225A4E100085818C /* main.m */; };
+		1F3BDE10225A8B8A00A89AA0 /* PlayerRacketView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3BDE0F225A8B8A00A89AA0 /* PlayerRacketView.m */; };
+		1F47CA6B225A92E1000007EC /* HWSberViewControllerPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F47CA6A225A92E1000007EC /* HWSberViewControllerPresenter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,11 +22,14 @@
 		1F176462225A4E0F0085818C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1F176464225A4E0F0085818C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		1F176465225A4E0F0085818C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		1F176468225A4E0F0085818C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1F17646A225A4E100085818C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F17646D225A4E100085818C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F17646F225A4E100085818C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F176470225A4E100085818C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1F3BDE0E225A8B8A00A89AA0 /* PlayerRacketView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerRacketView.h; sourceTree = "<group>"; };
+		1F3BDE0F225A8B8A00A89AA0 /* PlayerRacketView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerRacketView.m; sourceTree = "<group>"; };
+		1F47CA69225A92E1000007EC /* HWSberViewControllerPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWSberViewControllerPresenter.h; sourceTree = "<group>"; };
+		1F47CA6A225A92E1000007EC /* HWSberViewControllerPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWSberViewControllerPresenter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,11 +66,14 @@
 				1F176462225A4E0F0085818C /* AppDelegate.m */,
 				1F176464225A4E0F0085818C /* ViewController.h */,
 				1F176465225A4E0F0085818C /* ViewController.m */,
-				1F176467225A4E0F0085818C /* Main.storyboard */,
 				1F17646A225A4E100085818C /* Assets.xcassets */,
 				1F17646C225A4E100085818C /* LaunchScreen.storyboard */,
 				1F17646F225A4E100085818C /* Info.plist */,
 				1F176470225A4E100085818C /* main.m */,
+				1F3BDE0E225A8B8A00A89AA0 /* PlayerRacketView.h */,
+				1F3BDE0F225A8B8A00A89AA0 /* PlayerRacketView.m */,
+				1F47CA69225A92E1000007EC /* HWSberViewControllerPresenter.h */,
+				1F47CA6A225A92E1000007EC /* HWSberViewControllerPresenter.m */,
 			);
 			path = HWSberPingPong;
 			sourceTree = "<group>";
@@ -130,7 +137,6 @@
 			files = (
 				1F17646E225A4E100085818C /* LaunchScreen.storyboard in Resources */,
 				1F17646B225A4E100085818C /* Assets.xcassets in Resources */,
-				1F176469225A4E0F0085818C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,23 +147,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F47CA6B225A92E1000007EC /* HWSberViewControllerPresenter.m in Sources */,
 				1F176466225A4E0F0085818C /* ViewController.m in Sources */,
 				1F176471225A4E100085818C /* main.m in Sources */,
 				1F176463225A4E0F0085818C /* AppDelegate.m in Sources */,
+				1F3BDE10225A8B8A00A89AA0 /* PlayerRacketView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		1F176467225A4E0F0085818C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1F176468225A4E0F0085818C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1F17646C225A4E100085818C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
