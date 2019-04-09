@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "PlayerRacketView.h"
 #import "HWSberViewControllerPresenter.h"
+#import "DependencyInjection.h"
+#import "PresenterDelegate.h"
 
 static const CGFloat RacketViewHeight = 10.f;
 static const CGFloat RacketViewHWidth = 70.f;
@@ -16,6 +18,7 @@ static const CGFloat VerticalMargin = 50.f;
 
 @interface ViewController ()
 
+@property id<PresenterDelegate> presenterDelegate;
 @property (strong, nonatomic) UIView *topRacket;
 @property (strong, nonatomic) PlayerRacketView *bottomRacket;
 @property (strong, nonatomic) UIView *ball;
@@ -26,9 +29,7 @@ static const CGFloat VerticalMargin = 50.f;
 @property (strong, nonatomic) UIButton *pauseButton;
 @property (strong, nonatomic) UIView *pauseScreen;
 @property (strong, nonatomic) NSTimer *gameTimer;
-@property (assign, nonatomic) double currentSpeed;
 @property (assign, nonatomic) CGPoint savePoint;
-@property (strong, nonatomic) HWSberViewControllerPresenter *presenter;
     
 @end
 
@@ -37,6 +38,7 @@ static const CGFloat VerticalMargin = 50.f;
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+	[DependencyInjection assignView:self];
     [self setupViews];
     [self startGame];
 }
@@ -81,8 +83,7 @@ static const CGFloat VerticalMargin = 50.f;
 {
     self.ball.center = self.view.center;
     self.dX = self.dY = 1.0;
-    self.currentSpeed = 0.005f; // По умолчанию, скорость нормальная
-    self.gameTimer = [NSTimer scheduledTimerWithTimeInterval:self.currentSpeed target:self selector:@selector(moveBall) userInfo:nil repeats:YES];
+    self.gameTimer = [NSTimer scheduledTimerWithTimeInterval:[self.presenterDelegate getSpeed] target:self selector:@selector(moveBall) userInfo:nil repeats:YES];
 }
     
 -(void)moveBall
@@ -157,7 +158,7 @@ static const CGFloat VerticalMargin = 50.f;
         [self.view.layer addAnimation:transition forKey:kCATransition];
     }
         
-    self.gameTimer = [NSTimer scheduledTimerWithTimeInterval:self.currentSpeed target:self selector:@selector(moveBall) userInfo:nil repeats:YES];
+    self.gameTimer = [NSTimer scheduledTimerWithTimeInterval:[self.presenterDelegate getSpeed] target:self selector:@selector(moveBall) userInfo:nil repeats:YES];
 }
     
 -(void)pauseGame
@@ -178,21 +179,21 @@ static const CGFloat VerticalMargin = 50.f;
     slowButton.frame = CGRectMake(0,CGRectGetHeight(self.view.frame)/4 + 160, CGRectGetWidth(self.view.frame)/3, 80);
     slowButton.backgroundColor = [UIColor lightGrayColor];
     [slowButton setTitle:@"Медленно" forState:UIControlStateNormal];
-    [slowButton addTarget:self action:@selector(slow) forControlEvents:UIControlEventTouchUpInside];
+	[slowButton addTarget:self action:@selector(changeSpeed:) forControlEvents:UIControlEventTouchUpInside];
     [self.pauseScreen addSubview: slowButton];
         
     UIButton *normalButton = [UIButton buttonWithType:UIButtonTypeCustom];
     normalButton.frame = CGRectMake(CGRectGetWidth(self.view.frame)/3, CGRectGetHeight(self.view.frame)/4 + 160, CGRectGetWidth(self.view.frame)/3, 80);
     normalButton.backgroundColor = [UIColor grayColor];
     [normalButton setTitle:@"Обычная" forState:UIControlStateNormal];
-    [normalButton addTarget:self action:@selector(normal) forControlEvents:UIControlEventTouchUpInside];
+	[normalButton addTarget:self action:@selector(changeSpeed:) forControlEvents:UIControlEventTouchUpInside];
     [self.pauseScreen addSubview: normalButton];
         
     UIButton *fastButton = [UIButton buttonWithType:UIButtonTypeCustom];
     fastButton.frame = CGRectMake(CGRectGetWidth(self.view.frame)*2/3, CGRectGetHeight(self.view.frame)/4 + 160, CGRectGetWidth(self.view.frame)/3, 80);
     fastButton.backgroundColor = [UIColor darkGrayColor];
     [fastButton setTitle:@"Быстро" forState:UIControlStateNormal];
-    [fastButton addTarget:self action:@selector(fast) forControlEvents:UIControlEventTouchUpInside];
+	[fastButton addTarget:self action:@selector(changeSpeed:) forControlEvents:UIControlEventTouchUpInside];
     [self.pauseScreen addSubview: fastButton];
         
     [self.view addSubview:self.pauseScreen];
@@ -203,23 +204,22 @@ static const CGFloat VerticalMargin = 50.f;
     transition.type = kCATransitionPush;
     [self.view.layer addAnimation:transition forKey:kCATransition];
 }
+
+
+#pragma mark - PresenterDelegate
     
--(void)slow
+- (void)assign:(nonnull id<PresenterDelegate>)presenterDelegate
 {
-    self.currentSpeed = 0.01f;
-    [self resetOrContinueGame: NO];
+	self.presenterDelegate = presenterDelegate;
 }
-    
--(void)normal
+
+
+#pragma mark - AdditionMethods
+
+-(void)changeSpeed:(UIButton*)sender
 {
-    self.currentSpeed = 0.005f;
-    [self resetOrContinueGame: NO];
+	[self.presenterDelegate changeSpeed:sender.titleLabel.text];
+	[self resetOrContinueGame: NO];
 }
-    
--(void)fast
-{
-    self.currentSpeed = 0.0025f;
-    [self resetOrContinueGame: NO];
-}
-    
+
 @end

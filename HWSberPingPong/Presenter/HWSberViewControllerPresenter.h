@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PresenterDelegate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HWSberViewControllerPresenter : NSObject
+@interface HWSberViewControllerPresenter : NSObject <PresenterDelegate>
 
--(NSInteger)incrementTopScore;
--(NSInteger)incrementBottomScore;
+-(instancetype)initWithModelArray: (NSArray*) modelArray;
 
 @end
 
