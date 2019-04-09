@@ -6,11 +6,15 @@
 //  Copyright © 2019 Александр. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Difficulty : NSObject
+
+@property (readonly) CGFloat difficulty;
+
+-(instancetype) initWithDufficulty : (CGFloat) difficulty;
 
 @end
 

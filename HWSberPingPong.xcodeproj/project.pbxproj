@@ -14,6 +14,9 @@
 		1F176471225A4E100085818C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F176470225A4E100085818C /* main.m */; };
 		1F3BDE10225A8B8A00A89AA0 /* PlayerRacketView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3BDE0F225A8B8A00A89AA0 /* PlayerRacketView.m */; };
 		1F47CA6B225A92E1000007EC /* HWSberViewControllerPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F47CA6A225A92E1000007EC /* HWSberViewControllerPresenter.m */; };
+		7E803593225B96080045EDD2 /* Difficulty.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E803592225B96080045EDD2 /* Difficulty.m */; };
+		7E803596225CAD6F0045EDD2 /* DependencyInjection.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E803595225CAD6F0045EDD2 /* DependencyInjection.m */; };
+		7E8035A1225CDB6C0045EDD2 /* CustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8035A0225CDB6C0045EDD2 /* CustomButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,14 @@
 		1F3BDE0F225A8B8A00A89AA0 /* PlayerRacketView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerRacketView.m; sourceTree = "<group>"; };
 		1F47CA69225A92E1000007EC /* HWSberViewControllerPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWSberViewControllerPresenter.h; sourceTree = "<group>"; };
 		1F47CA6A225A92E1000007EC /* HWSberViewControllerPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWSberViewControllerPresenter.m; sourceTree = "<group>"; };
+		7E803591225B96080045EDD2 /* Difficulty.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Difficulty.h; sourceTree = "<group>"; };
+		7E803592225B96080045EDD2 /* Difficulty.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Difficulty.m; sourceTree = "<group>"; };
+		7E803594225CAD6F0045EDD2 /* DependencyInjection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DependencyInjection.h; sourceTree = "<group>"; };
+		7E803595225CAD6F0045EDD2 /* DependencyInjection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DependencyInjection.m; sourceTree = "<group>"; };
+		7E803597225CADF30045EDD2 /* ViewInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewInput.h; sourceTree = "<group>"; };
+		7E803598225CAE050045EDD2 /* PresenterDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PresenterDelegate.h; sourceTree = "<group>"; };
+		7E80359F225CDB6C0045EDD2 /* CustomButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomButton.h; sourceTree = "<group>"; };
+		7E8035A0225CDB6C0045EDD2 /* CustomButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,20 +73,76 @@
 		1F176460225A4E0F0085818C /* HWSberPingPong */ = {
 			isa = PBXGroup;
 			children = (
+				7E80359E225CDB490045EDD2 /* DI */,
+				7E80359C225CDB200045EDD2 /* Presenter */,
+				7E80359B225CDB160045EDD2 /* View */,
+				7E80359A225CDAF80045EDD2 /* Custom Views */,
+				7E803599225CDAE50045EDD2 /* protocols */,
+				7E803590225B95D60045EDD2 /* Model */,
 				1F176461225A4E0F0085818C /* AppDelegate.h */,
 				1F176462225A4E0F0085818C /* AppDelegate.m */,
-				1F176464225A4E0F0085818C /* ViewController.h */,
-				1F176465225A4E0F0085818C /* ViewController.m */,
 				1F17646A225A4E100085818C /* Assets.xcassets */,
 				1F17646C225A4E100085818C /* LaunchScreen.storyboard */,
 				1F17646F225A4E100085818C /* Info.plist */,
 				1F176470225A4E100085818C /* main.m */,
+			);
+			path = HWSberPingPong;
+			sourceTree = "<group>";
+		};
+		7E803590225B95D60045EDD2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7E803591225B96080045EDD2 /* Difficulty.h */,
+				7E803592225B96080045EDD2 /* Difficulty.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7E803599225CDAE50045EDD2 /* protocols */ = {
+			isa = PBXGroup;
+			children = (
+				7E803597225CADF30045EDD2 /* ViewInput.h */,
+				7E803598225CAE050045EDD2 /* PresenterDelegate.h */,
+			);
+			path = protocols;
+			sourceTree = "<group>";
+		};
+		7E80359A225CDAF80045EDD2 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
 				1F3BDE0E225A8B8A00A89AA0 /* PlayerRacketView.h */,
 				1F3BDE0F225A8B8A00A89AA0 /* PlayerRacketView.m */,
+				7E80359F225CDB6C0045EDD2 /* CustomButton.h */,
+				7E8035A0225CDB6C0045EDD2 /* CustomButton.m */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		7E80359B225CDB160045EDD2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1F176464225A4E0F0085818C /* ViewController.h */,
+				1F176465225A4E0F0085818C /* ViewController.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7E80359C225CDB200045EDD2 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
 				1F47CA69225A92E1000007EC /* HWSberViewControllerPresenter.h */,
 				1F47CA6A225A92E1000007EC /* HWSberViewControllerPresenter.m */,
 			);
-			path = HWSberPingPong;
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		7E80359E225CDB490045EDD2 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				7E803594225CAD6F0045EDD2 /* DependencyInjection.h */,
+				7E803595225CAD6F0045EDD2 /* DependencyInjection.m */,
+			);
+			path = DI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,10 +214,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E8035A1225CDB6C0045EDD2 /* CustomButton.m in Sources */,
 				1F47CA6B225A92E1000007EC /* HWSberViewControllerPresenter.m in Sources */,
 				1F176466225A4E0F0085818C /* ViewController.m in Sources */,
 				1F176471225A4E100085818C /* main.m in Sources */,
+				7E803596225CAD6F0045EDD2 /* DependencyInjection.m in Sources */,
 				1F176463225A4E0F0085818C /* AppDelegate.m in Sources */,
+				7E803593225B96080045EDD2 /* Difficulty.m in Sources */,
 				1F3BDE10225A8B8A00A89AA0 /* PlayerRacketView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

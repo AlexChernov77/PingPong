@@ -10,15 +10,16 @@
 #import "Difficulty.h"
 
 @interface HWSberViewControllerPresenter ()
-@property (assign, nonatomic) NSInteger topScore;
-@property (assign, nonatomic) NSInteger bottomScore;
-@property (assign, nonatomic) CGFloat currentSpeed;
-@property (assign, nonatomic) CGPoint savePoint;
 @property NSArray *arrayModel;
 
 @end
 
 @implementation HWSberViewControllerPresenter
+
+@synthesize savePoint;
+@synthesize currentSpeed;
+@synthesize bottomScore;
+@synthesize topScore;
 
 -(instancetype)initWithModelArray: (NSArray*) modelArray
 {
@@ -34,29 +35,25 @@
 
 #pragma mark - PresenterDelegate
 
--(NSInteger)incrementBottomScore
+-(void)incrementBottomScore
 {
-    return self.bottomScore++;
+	bottomScore++;
 }
 
--(NSInteger)incrementTopScore
+-(void)incrementTopScore
 {
-    return self.topScore++;
+    topScore++;
 }
 
--(CGFloat)getSpeed
+-(void)changeSpeed:(NSString*)dufficuly
 {
-	return self.currentSpeed;
-}
-
--(void)changeSpeed:(NSString*)dufficuly {
 	Difficulty *game;
-	if ([dufficuly isEqualToString:@"Медленно"])
+	if ([dufficuly isEqualToString:@"Легко"])
 	{
 		game = self.arrayModel[0];
 		self.currentSpeed = game.difficulty;
 	}
-	else if ([dufficuly isEqualToString:@"Обычная"])
+	else if ([dufficuly isEqualToString:@"Средне"])
 	{
 		game = self.arrayModel[1];
 		self.currentSpeed = game.difficulty;
@@ -70,5 +67,6 @@
 
 
 #pragma mark - Helpers Methods
+
 
 @end

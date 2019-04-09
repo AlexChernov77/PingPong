@@ -8,6 +8,22 @@
 
 #import "Difficulty.h"
 
+@interface Difficulty()
+
+@property CGFloat difficulty;
+
+@end
+
 @implementation Difficulty
+
+-(instancetype) initWithDufficulty : (CGFloat) difficulty
+{
+	if ( self = [super init] )
+	{
+		_difficulty = difficulty;
+	}
+	
+	return self ;
+}
 
 @end

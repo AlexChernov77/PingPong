@@ -10,12 +10,16 @@
 
 @implementation CustomButton
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+-(instancetype)initWithParamets: (NSString*) title : (UIColor*) backgroudcolor : (CGRect) frame
+{
+	if ( self = [super init] )
+	{
+		self.frame = frame;
+		self.backgroundColor = backgroudcolor;
+		[self setTitle:title forState:UIControlStateNormal];
+	}
+	
+	return self ;
 }
-*/
 
 @end

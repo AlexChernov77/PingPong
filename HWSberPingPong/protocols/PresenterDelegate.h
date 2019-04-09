@@ -12,10 +12,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol PresenterDelegate <NSObject>
 
--(NSInteger)incrementBottomScore;
--(NSInteger)incrementTopScore;
+-(void)incrementBottomScore;
+-(void)incrementTopScore;
 -(void) changeSpeed: (NSString*) dufficuly;
--(CGFloat)getSpeed;
+@property (assign, nonatomic) CGPoint savePoint;
+@property (assign, nonatomic) CGFloat currentSpeed;
+@property (assign, nonatomic) NSInteger topScore;
+@property (assign, nonatomic) NSInteger bottomScore;
+
 
 @end
 

@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CustomButton : UIButton
 
+-(instancetype)initWithParamets: (NSString*) title : (UIColor*) backgroudcolor : (CGRect) frame;
+
 @end
 
 NS_ASSUME_NONNULL_END
